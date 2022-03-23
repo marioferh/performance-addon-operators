@@ -230,6 +230,11 @@ func (s CPUSet) ToSliceNoSortInt64() []int64 {
 	return result
 }
 
+func (s CPUSet) StringSplit() string {
+	myslice2 := s.ToSlice()
+	return strings.Trim(strings.Join(strings.Fields(fmt.Sprint(myslice2)), ","), "[]")
+}
+
 // String returns a new string representation of the elements in this CPU set
 // in canonical linux CPU list format.
 //
